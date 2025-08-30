@@ -52,7 +52,6 @@ export default function Call() {
         rows={3}
         value={ctaText}
         onChange={(e) => setCtaText(e.target.value)}
-        disabled={!enabled}
         placeholder="Type your call to action message..."
       />
       <div className="mb-6">
