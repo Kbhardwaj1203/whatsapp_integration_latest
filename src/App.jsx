@@ -79,7 +79,7 @@ const App = () => {
         </button>
       )}
 
-      <main className="flex-1 min-h-screen flex flex-col">
+      <main className="flex-1 min-h-screen flex flex-col ml-72">
         {/* Topbar */}
         <header className="h-16 bg-white border-b border-[#0b1e39]/10 px-5 flex items-center justify-between sticky top-0 z-10">
           <div className="flex items-center gap-3 w-full max-w-xl bg-[#fffff0] border border-[#0b1e39]/10 rounded-lg px-3 py-2">

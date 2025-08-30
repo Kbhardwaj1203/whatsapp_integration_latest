@@ -32,7 +32,7 @@ function Sidebar({ onHamburgerClick, onNavigate }) {
   );
 
   return (
-    <aside className="h-screen w-72 bg-[#0b1e39] text-[#fffff0] shadow-2xl flex flex-col">
+    <aside className="fixed left-0 top-0 z-50 h-screen w-72 bg-[#0b1e39] text-[#fffff0] shadow-2xl flex flex-col">
       {/* Header */}
       <div className="flex items-center justify-between h-16 px-4 border-b border-white/10">
         <span className="text-lg font-bold tracking-wide">PushDaddy Admin</span>
