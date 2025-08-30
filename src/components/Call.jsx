@@ -117,7 +117,7 @@ export default function Call() {
             fontFamily: 'Arial, sans-serif',
             fontSize: '18px',
             fontWeight: 'bold',
-            animation: enabled && animation !== 'none' ? `${animation} 1.5s ${repeat === 'infinite' ? 'infinite' : repeat}` : 'none',
+            animation: enabled && animation !== 'none' ? `${animation} 1.5s ${repeat === 'infinite' ? 'infinite' : Number.isFinite(repeat) ? repeat : 1}` : 'none',
           }}
         >
           <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="wa" className="w-6 h-6" />
