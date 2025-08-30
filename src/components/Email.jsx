@@ -12,7 +12,23 @@ export default function Email() {
 				{/* Top Export Emails link */}
 				<div className="mb-4">
 					<section className="text-gray-900 font-semibold text-base transition-all">Email Popup in chat</section>
-				</div>
+								{/* Floating WhatsApp Button Fixed Bottom Right */}
+								<div className="fixed bottom-8 right-8 z-50">
+									<button
+										className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg"
+										style={{
+											background: '#25D366',
+											color: '#fff',
+											fontFamily: 'Arial, sans-serif',
+											fontSize: '18px',
+											fontWeight: 'bold',
+										}}
+									>
+										<img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="wa" className="w-6 h-6" />
+										<span style={{ color: '#fff' }}>Chat Now</span>
+									</button>
+								</div>
+					</div>
 				<div className="flex gap-6 mb-8">
 					<div className="flex-1 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-xl p-4 flex flex-col items-center justify-center">
 						<div className="w-56 h-96 bg-white rounded-xl shadow-lg flex flex-col justify-center items-center p-6">
