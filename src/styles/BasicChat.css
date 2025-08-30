@@ -1,0 +1,168 @@
+/* BasicChat.css */
+
+.basic-chat-container {
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-config {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tabs-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.polaris-card {
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer {
+  display: flex;
+  gap: 10px;
+}
+
+.polaris-section {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.slider {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+
+.toggle-switch input:checked + .slider {
+  background: #4caf50;
+}
+
+.slider:before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  top: 1px;
+  left: 1px;
+  transition: transform 0.3s;
+}
+
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-field input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.select-field select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-content {
+  display: flex;
+  overflow: hidden;
+  gap: 10px;
+}
+
+.slider-item {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.slider-item.selected {
+  border-color: #4caf50;
+}
+
+.slider-item img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tabs-section {
+    grid-template-columns: 1fr;
+  }
+
+  .radio-group {
+    flex-direction: column;
+  }
+}
