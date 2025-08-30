@@ -76,7 +76,7 @@ function Sidebar({ onHamburgerClick, onNavigate }) {
             {sectionLink(FaComments, 'Basic Chat Setting', () => onNavigate && onNavigate('mobile'))}
             {sectionLink(FaPalette, 'Color Setting', () => onNavigate && onNavigate('color'))}
             {sectionLink(FaFont, 'Text Setting', () => {})}
-            {sectionLink(FaWhatsapp, 'Chat Icon', () => {})}
+            {sectionLink(FaWhatsapp, 'Chat Icon', () => onNavigate && onNavigate('chat'))}
             {sectionLink(FaBolt, 'Call to action', () => onNavigate && onNavigate('call'))}
             {sectionLink(FaEnvelope, 'Email Popup in Chat', () => {})}
             <button

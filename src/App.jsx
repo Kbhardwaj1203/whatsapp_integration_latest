@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar.jsx';
+import Chat from './components/Chat.jsx';
 import Call from './components/Call.jsx';
 import Color from './components/Color.jsx';
 import Mobile from './components/Mobile.jsx';
@@ -7,7 +8,7 @@ import { FaBell, FaSearch, FaUserCircle } from 'react-icons/fa';
 
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [currentPage, setCurrentPage] = useState('dashboard'); // 'dashboard' | 'color' | 'mobile' | 'call'
+  const [currentPage, setCurrentPage] = useState('dashboard'); // 'dashboard' | 'color' | 'mobile' | 'call' | 'chat'
 
   const renderDashboard = () => (
     <div className="p-6 space-y-6">
@@ -67,6 +68,7 @@ const App = () => {
             if (route === 'color') setCurrentPage('color');
             if (route === 'mobile') setCurrentPage('mobile');
             if (route === 'call') setCurrentPage('call');
+            if (route === 'chat') setCurrentPage('chat');
           }}
         />
       )}
@@ -112,6 +114,11 @@ const App = () => {
           {currentPage === 'call' && (
             <div className="p-6">
               <Call />
+            </div>
+          )}
+          {currentPage === 'chat' && (
+            <div className="p-6">
+              <Chat />
             </div>
           )}
         </section>
