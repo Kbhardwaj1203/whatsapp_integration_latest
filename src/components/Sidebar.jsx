@@ -78,7 +78,7 @@ function Sidebar({ onHamburgerClick, onNavigate }) {
             {sectionLink(FaFont, 'Text Setting', () => {})}
             {sectionLink(FaWhatsapp, 'Chat Icon', () => onNavigate && onNavigate('chat'))}
             {sectionLink(FaBolt, 'Call to action', () => onNavigate && onNavigate('call'))}
-            {sectionLink(FaEnvelope, 'Email Popup in Chat', () => {})}
+            {sectionLink(FaEnvelope, 'Email Popup in Chat', () => onNavigate && onNavigate('email'))}
             <button
               className="flex items-center gap-2 text-xs mt-6 text-[#fffff0]/70 hover:text-[#fffff0]"
               onClick={() => setShowChatSettingOptions(false)}
