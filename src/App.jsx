@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar.jsx';
+import Call from './components/Call.jsx';
 import Color from './components/Color.jsx';
 import Mobile from './components/Mobile.jsx';
 import { FaBell, FaSearch, FaUserCircle } from 'react-icons/fa';
 
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [currentPage, setCurrentPage] = useState('dashboard'); // 'dashboard' | 'color' | 'mobile'
+  const [currentPage, setCurrentPage] = useState('dashboard'); // 'dashboard' | 'color' | 'mobile' | 'call'
 
   const renderDashboard = () => (
     <div className="p-6 space-y-6">
@@ -65,6 +66,7 @@ const App = () => {
           onNavigate={(route) => {
             if (route === 'color') setCurrentPage('color');
             if (route === 'mobile') setCurrentPage('mobile');
+            if (route === 'call') setCurrentPage('call');
           }}
         />
       )}
@@ -105,6 +107,11 @@ const App = () => {
           {currentPage === 'mobile' && (
             <div className="p-6">
               <Mobile />
+            </div>
+          )}
+          {currentPage === 'call' && (
+            <div className="p-6">
+              <Call />
             </div>
           )}
         </section>

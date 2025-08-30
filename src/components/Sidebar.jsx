@@ -77,7 +77,7 @@ function Sidebar({ onHamburgerClick, onNavigate }) {
             {sectionLink(FaPalette, 'Color Setting', () => onNavigate && onNavigate('color'))}
             {sectionLink(FaFont, 'Text Setting', () => {})}
             {sectionLink(FaWhatsapp, 'Chat Icon', () => {})}
-            {sectionLink(FaBolt, 'Call to action', () => {})}
+            {sectionLink(FaBolt, 'Call to action', () => onNavigate && onNavigate('call'))}
             {sectionLink(FaEnvelope, 'Email Popup in Chat', () => {})}
             <button
               className="flex items-center gap-2 text-xs mt-6 text-[#fffff0]/70 hover:text-[#fffff0]"
