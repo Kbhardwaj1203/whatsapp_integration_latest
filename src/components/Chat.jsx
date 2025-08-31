@@ -7,15 +7,16 @@ export default function Chat() {
 
     return (
         <>
-            <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-lg w-full mx-auto animate-fade-in">
-                <h2 className="text-2xl font-bold text-center mb-2 text-[#1e293b]">
+            <div className="max-w-lg mx-auto bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-3xl shadow-2xl border border-[#e0e7ff] p-8 mt-12 animate-fade-in">
+                <h2 className="text-2xl font-bold text-center mb-2 text-[#1e293b] flex items-center gap-2">
+                    <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#2563eb"/><text x="12" y="16" textAnchor="middle" fontSize="12" fill="#fff">CHAT</text></svg>
                     Button Display & Position
                     <span className="text-base font-semibold ml-2">(Left Right Up Down)</span>
                 </h2>
-                <div className="text-center text-red-600 font-semibold mb-4">
+                <div className="text-center text-blue-600 font-semibold mb-4">
                     We feel you need to adjust the slider and increase the width and hit on SAVE
                 </div>
-                <div className="mb-6 text-gray-700 text-sm font-medium">
+                <div className="mb-6 text-[#1e293b] text-sm font-medium">
                     Chat Icon Width & Height in Px. If you want round icon then 40-60Px recommended. For flat merged bar with icon + Text 100Px minimum is recommended.
                 </div>
                 <div className="flex flex-col gap-2 mb-6">
@@ -32,7 +33,7 @@ export default function Chat() {
                         <span>{iconSize} Px</span>
                     </div>
                 </div>
-                <div className="mb-6 text-gray-700 text-sm font-medium">
+                <div className="mb-6 text-[#1e293b] text-sm font-medium">
                     Chat Icon move left right just by increasing decreasing the percentage. It is particularly applicable if you want to make flat design with merged text
                 </div>
                 <div className="flex flex-col gap-2 mb-6">
@@ -49,7 +50,7 @@ export default function Chat() {
                         <span>{iconMove} %</span>
                     </div>
                 </div>
-                <div className="mb-6 text-gray-700 text-sm font-medium">
+                <div className="mb-6 text-[#1e293b] text-sm font-medium">
                     Chat Icon border radius. If you want rounded icon then set 50. if you want flat icon then radius should be 1-10% maximum
                 </div>
                 <div className="flex flex-col gap-2 mb-6">
@@ -82,21 +83,22 @@ export default function Chat() {
                 style={{ right: `calc(${iconMove}% + 8px)` }}
             >
                 <button
-                    className="flex items-center gap-2 rounded-full shadow-lg"
+                    className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg"
                     style={{
-                        background: '#25D366',
+                        background: 'linear-gradient(90deg, #2563eb 0%, #a78bfa 100%)',
                         color: '#fff',
                         fontFamily: 'Arial, sans-serif',
                         fontSize: '18px',
                         fontWeight: 'bold',
                         width: iconSize + 'px',
                         height: iconSize + 'px',
-                        padding: '0 18px',
                         minWidth: '120px',
                         justifyContent: 'center',
                         alignItems: 'center',
                         display: 'flex',
                         borderRadius: iconRadius + 'px',
+                        boxShadow: '0 8px 32px rgba(37,99,235,0.18), 0 2px 8px rgba(167,139,250,0.12)',
+                        transition: 'all 0.3s cubic-bezier(.4,2,.3,1)',
                     }}
                 >
                     <img

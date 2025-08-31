@@ -110,15 +110,15 @@ export default function Call() {
       {/* Floating WhatsApp Button Fixed Bottom Right, reflects animation, repeat, and text */}
       <div className="fixed bottom-8 right-8 z-50">
         <button
-          className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg"
-          style={{
-            background: '#25D366',
-            color: '#fff',
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '18px',
-            fontWeight: 'bold',
-            animation: enabled && animation !== 'none' ? `${animation} 1.5s ${repeat === 'infinite' ? 'infinite' : Number.isFinite(repeat) ? repeat : 1}` : 'none',
-          }}
+            className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg"
+            style={{
+              background: 'linear-gradient(90deg, #2563eb 0%, #a78bfa 100%)',
+              color: '#fff',
+              fontFamily: 'Arial, sans-serif',
+              fontSize: '18px',
+              fontWeight: 'bold',
+              animation: enabled && animation !== 'none' ? `${animation} 1.5s ${repeat === 'infinite' ? 'infinite' : Number.isFinite(repeat) ? repeat : 1}` : 'none',
+            }}
         >
           <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="wa" className="w-6 h-6" />
           <span style={{ color: '#fff' }}>Chat Now</span>
