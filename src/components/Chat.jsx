@@ -1,10 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FloatingWhatsAppButton from "./FloatingWhatsAppButton";
 
 export default function Chat() {
     const [iconSize, setIconSize] = useState(50);
     const [iconMove, setIconMove] = useState(50);
     const [iconRadius, setIconRadius] = useState(50);
+
+    // Load saved settings on mount
+    useEffect(() => {
+        try {
+            const raw = localStorage.getItem('chatConfig');
+            if (raw) {
+                const cfg = JSON.parse(raw);
+                if (typeof cfg.iconSize === 'number') setIconSize(cfg.iconSize);
+                if (typeof cfg.iconMove === 'number') setIconMove(cfg.iconMove);
+                if (typeof cfg.iconRadius === 'number') setIconRadius(cfg.iconRadius);
+            }
+        } catch {}
+    }, []);
+
+    // Save handler
+    const handleSave = () => {
+        const config = { iconSize, iconMove, iconRadius };
+        try {
+            localStorage.setItem('chatConfig', JSON.stringify(config));
+            alert('Chat settings saved!');
+        } catch {
+            alert('Failed to save chat settings.');
+        }
+    };
 
     return (
         <>
@@ -70,7 +94,7 @@ export default function Chat() {
                 </div>
                 <button
                     className="w-full mt-4 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold text-lg shadow hover:opacity-90 transition-all"
-                    onClick={() => {}}
+                    onClick={handleSave}
                 >
                     SAVE
                 </button>

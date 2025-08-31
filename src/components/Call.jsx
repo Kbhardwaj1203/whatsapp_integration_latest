@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const animationOptions = [
   { label: "No Animation", value: "none" },
@@ -22,6 +22,31 @@ export default function Call() {
   const [animation, setAnimation] = useState("bounce");
   const [repeat, setRepeat] = useState("infinite");
   const [showMore, setShowMore] = useState(false);
+
+  // Load saved settings on mount
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('callConfig');
+      if (raw) {
+        const cfg = JSON.parse(raw);
+        if (typeof cfg.enabled === 'boolean') setEnabled(cfg.enabled);
+        if (typeof cfg.ctaText === 'string') setCtaText(cfg.ctaText);
+        if (typeof cfg.animation === 'string') setAnimation(cfg.animation);
+        if (typeof cfg.repeat === 'number' || cfg.repeat === 'infinite') setRepeat(cfg.repeat);
+      }
+    } catch {}
+  }, []);
+
+  // Save handler
+  const handleSave = () => {
+    const config = { enabled, ctaText, animation, repeat };
+    try {
+      localStorage.setItem('callConfig', JSON.stringify(config));
+      alert('Call settings saved!');
+    } catch {
+      alert('Failed to save settings.');
+    }
+  };
 
   return (
     <div className="max-w-6xl mx-auto bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-3xl shadow-2xl border border-[#e0e7ff] p-8 mt-12">
@@ -107,6 +132,17 @@ export default function Call() {
         @keyframes emitting { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
         @keyframes fade-in { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
       `}</style>
+
+      {/* Save button */}
+      <div className="flex justify-end mt-6">
+        <button
+          className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold text-lg shadow hover:opacity-90 transition-all"
+          onClick={handleSave}
+        >
+          Save
+        </button>
+      </div>
+
       {/* Floating WhatsApp Button (shared component) */}
       <div className="fixed bottom-8 right-8 z-50">
         <button
