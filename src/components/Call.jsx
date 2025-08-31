@@ -24,10 +24,10 @@ export default function Call() {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div className="max-w-lg mx-auto bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-3xl shadow-2xl border border-[#e0e7ff] p-8 mt-12">
+    <div className="max-w-6xl mx-auto bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-3xl shadow-2xl border border-[#e0e7ff] p-8 mt-12">
       <div className="mb-6 flex items-center justify-between">
         <span className="font-bold text-2xl text-[#1e293b] flex items-center gap-2">
-          <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#2563eb"/><text x="12" y="16" textAnchor="middle" fontSize="12" fill="#fff">CTA</text></svg>
+          {/* <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#2563eb"/><text x="12" y="16" textAnchor="middle" fontSize="12" fill="#fff">CTA</text></svg> */}
           Enable Call to Action
         </span>
         <button
@@ -107,12 +107,12 @@ export default function Call() {
         @keyframes emitting { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
         @keyframes fade-in { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
       `}</style>
-      {/* Floating WhatsApp Button Fixed Bottom Right, reflects animation, repeat, and text */}
+      {/* Floating WhatsApp Button (shared component) */}
       <div className="fixed bottom-8 right-8 z-50">
         <button
             className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg"
             style={{
-              background: 'linear-gradient(90deg, #2563eb 0%, #a78bfa 100%)',
+              background: 'linear-gradient(90deg, #25D366 0%, #128C7E 100%)',
               color: '#fff',
               fontFamily: 'Arial, sans-serif',
               fontSize: '18px',
@@ -120,8 +120,11 @@ export default function Call() {
               animation: enabled && animation !== 'none' ? `${animation} 1.5s ${repeat === 'infinite' ? 'infinite' : Number.isFinite(repeat) ? repeat : 1}` : 'none',
             }}
         >
-          <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="wa" className="w-6 h-6" />
-          <span style={{ color: '#fff' }}>Chat Now</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+            {/* Icon unified by CSS or shared component visuals */}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.02 2 11.46c0 2.98 1.51 5.64 3.86 7.37L5 22l3.34-1.07c1.1.31 2.26.48 3.46.48 5.52 0 10-4.02 10-9.46S17.52 2 12 2z" fill="#25D366"/><path d="M16.56 13.25c-.24-.12-1.4-.7-1.62-.78-.22-.08-.38-.12-.53.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.18-.7-.62-1.18-1.38-1.32-1.62-.14-.24-.02-.36.1-.48.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.53-1.26-.72-1.72-.18-.44-.36-.38-.52-.38h-.44c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.7 2.6 4.16 3.64.58.25 1.04.4 1.4.51.58.18 1.1.16 1.52.1.46-.06 1.4-.58 1.6-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z" fill="#fff"/></svg>
+            <span>Chat with us</span>
+          </span>
         </button>
       </div>
     </div>

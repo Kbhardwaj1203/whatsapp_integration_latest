@@ -6,6 +6,7 @@ import Call from './components/Call.jsx';
 import Color from './components/Color.jsx';
 import Mobile from './components/Mobile.jsx';
 import TextConfig from './components/Text.jsx';
+import AddContact from './components/AddContact.jsx';
 import { FaBell, FaSearch, FaUserCircle } from 'react-icons/fa';
 
 const App = () => {

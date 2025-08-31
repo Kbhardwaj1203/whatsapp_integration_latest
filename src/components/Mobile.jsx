@@ -300,7 +300,7 @@ export default function MobileConfig() {
   );
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="p-6 max-w-7xl mx-auto">
       <AnimStyles />
 
       <div className="bg-white rounded-2xl shadow border border-[#0b1e39]/10 overflow-hidden p-6 md:p-8">
@@ -739,11 +739,7 @@ export default function MobileConfig() {
             <div style={{ display: "flex", alignItems: "center" }}>
               <FaWhatsapp size={Math.round((state.fontSize + 2) * 0.8)} color={state.svgIconColor} />
             </div>
-            {!state.noPoweredBy && (
-              <div style={{ marginLeft: 8, fontSize: 10, color: "#a78bfa" }}>
-                Powered by xyz.com
-              </div>
-            )}
+           
           </div>
         )
       )}

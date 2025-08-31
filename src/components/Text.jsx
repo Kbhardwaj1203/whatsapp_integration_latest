@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FloatingWhatsAppButton from "./FloatingWhatsAppButton";
 
 export default function TextConfig() {
   const [flyerMobile, setFlyerMobile] = useState(false);
@@ -19,7 +20,7 @@ export default function TextConfig() {
   const [typingPlaceholder, setTypingPlaceholder] = useState("");
 
   return (
-    <div className="max-w-3xl mx-auto bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-3xl shadow-2xl border border-[#e0e7ff] p-8 mt-12 animate-fade-in">
+    <div className="max-w-6xl mx-auto bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-3xl shadow-2xl border border-[#e0e7ff] p-8 mt-12 animate-fade-in">
       {/* Flyer Section */}
       <div className="mb-10">
         <div className="flex items-center gap-4 mb-2">
@@ -63,6 +64,17 @@ export default function TextConfig() {
         <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#a78bfa"/><text x="12" y="16" textAnchor="middle" fontSize="12" fill="#fff">TEXT</text></svg>
         Text Configuration
       </h2>
+      {/* Floating WhatsApp Button (shared component) for preview in Text settings */}
+      <FloatingWhatsAppButton
+        text={(desktopText || mobileText || 'Chat with us')}
+        size={60}
+        movePercent={50}
+        radius={40}
+        background="linear-gradient(90deg, #25D366 0%, #128C7E 100%)"
+        color="#fff"
+        animation="none"
+        repeat="infinite"
+      />
       {/* Quick Action Buttons */}
       <div className="mb-8 flex flex-col gap-6">
         <div className="flex items-center gap-3 cursor-pointer">

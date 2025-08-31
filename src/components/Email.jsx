@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FloatingWhatsAppButton from "./FloatingWhatsAppButton";
 
 export default function Email() {
 	const [header, setHeader] = useState("hello");
@@ -8,29 +9,24 @@ export default function Email() {
 	const [closeTime, setCloseTime] = useState("2");
 
 		return (
-			<div className="max-w-xl mx-auto bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-3xl shadow-2xl border border-[#e0e7ff] p-8 mt-12">
+			<div className="max-w-6xl mx-auto bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-3xl shadow-2xl border border-[#e0e7ff] p-8 mt-12">
 				{/* Top Export Emails link */}
 				<div className="mb-4">
 					<section className="text-[#1e293b] font-bold text-2xl flex items-center gap-2">
-						<svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#2563eb"/><text x="12" y="16" textAnchor="middle" fontSize="12" fill="#fff">EMAIL</text></svg>
+						{/* <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#2563eb"/><text x="12" y="16" textAnchor="middle" fontSize="12" fill="#fff">EMAIL</text></svg> */}
 						Email Popup in chat
 					</section>
-								{/* Floating WhatsApp Button Fixed Bottom Right */}
-								<div className="fixed bottom-8 right-8 z-50">
-									<button
-										className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg"
-										style={{
-											background: 'linear-gradient(90deg, #2563eb 0%, #a78bfa 100%)',
-											color: '#fff',
-											fontFamily: 'Arial, sans-serif',
-											fontSize: '18px',
-											fontWeight: 'bold',
-										}}
-									>
-										<img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="wa" className="w-6 h-6" />
-										<span style={{ color: '#fff' }}>Chat Now</span>
-									</button>
-								</div>
+								{/* Floating WhatsApp Button (shared component) */}
+								<FloatingWhatsAppButton
+									text={buttonText || "Chat with us"}
+									size={60}
+									movePercent={50}
+									radius={40}
+									background="linear-gradient(90deg, #25D366 0%, #128C7E 100%)"
+									color="#fff"
+									animation="none"
+									repeat="infinite"
+								/>
 					</div>
 				<div className="flex gap-6 mb-8">
 					<div className="flex-1 bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-xl p-4 flex flex-col items-center justify-center">
