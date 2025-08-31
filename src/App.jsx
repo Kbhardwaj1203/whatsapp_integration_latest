@@ -11,54 +11,11 @@ import { FaBell, FaSearch, FaUserCircle } from 'react-icons/fa';
 
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [currentPage, setCurrentPage] = useState('dashboard'); // 'dashboard' | 'color' | 'mobile' | 'call' | 'chat' | 'email' | 'text'
+  const [currentPage, setCurrentPage] = useState('dashboard'); // 'dashboard' | 'color' | 'mobile' | 'call' | 'chat' | 'email' | 'text' | 'add-contact'
 
   const renderDashboard = () => (
     <div className="p-6 space-y-6">
-      {/* Top stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-        <div className="bg-white rounded-xl shadow p-5 border border-[#0b1e39]/10">
-          <div className="text-sm text-[#0b1e39]/70">Total Chats</div>
-          <div className="mt-2 text-3xl font-bold text-[#0b1e39]">1,248</div>
-          <div className="mt-1 text-xs text-[#0b1e39]/60">+12% from last week</div>
-        </div>
-        <div className="bg-white rounded-xl shadow p-5 border border-[#0b1e39]/10">
-          <div className="text-sm text-[#0b1e39]/70">Conversions</div>
-          <div className="mt-2 text-3xl font-bold text-[#0b1e39]">312</div>
-          <div className="mt-1 text-xs text-[#0b1e39]/60">+4.5% this month</div>
-        </div>
-        <div className="bg-white rounded-xl shadow p-5 border border-[#0b1e39]/10">
-          <div className="text-sm text-[#0b1e39]/70">Avg. Response</div>
-          <div className="mt-2 text-3xl font-bold text-[#0b1e39]">1m 43s</div>
-          <div className="mt-1 text-xs text-[#0b1e39]/60">-8s vs yesterday</div>
-        </div>
-        <div className="bg-white rounded-xl shadow p-5 border border-[#0b1e39]/10">
-          <div className="text-sm text-[#0b1e39]/70">Active Agents</div>
-          <div className="mt-2 text-3xl font-bold text-[#0b1e39]">7</div>
-          <div className="mt-1 text-xs text-[#0b1e39]/60">Peak: 10 agents</div>
-        </div>
-      </div>
-
-      {/* Content blocks */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        <div className="xl:col-span-2 bg-white rounded-xl shadow p-5 border border-[#0b1e39]/10">
-          <div className="flex items-center justify-between">
-            <h3 className="font-semibold text-[#0b1e39]">Recent Conversations</h3>
-            <button className="text-sm text-[#0b1e39]/70 hover:text-[#0b1e39]">View all</button>
-          </div>
-          <div className="mt-4 h-48 grid place-items-center text-[#0b1e39]/50 text-sm">
-            Chart/Table placeholder
-          </div>
-        </div>
-        <div className="bg-white rounded-xl shadow p-5 border border-[#0b1e39]/10">
-          <h3 className="font-semibold text-[#0b1e39]">Quick Actions</h3>
-          <div className="mt-4 space-y-3">
-            <button className="w-full text-left px-4 py-3 rounded-lg bg-[#0b1e39] text-[#fffff0] hover:opacity-90">Create Campaign</button>
-            <button className="w-full text-left px-4 py-3 rounded-lg bg-[#102846] text-[#fffff0] hover:opacity-90" onClick={() => setCurrentPage('color')}>Color Settings</button>
-            <button className="w-full text-left px-4 py-3 rounded-lg bg-[#14365c] text-[#fffff0] hover:opacity-90">Add FAQ</button>
-          </div>
-        </div>
-      </div>
+      {/* ...existing code... */}
     </div>
   );
 
@@ -74,6 +31,7 @@ const App = () => {
             if (route === 'chat') setCurrentPage('chat');
             if (route === 'email') setCurrentPage('email');
             if (route === 'text') setCurrentPage('text');
+            if (route === 'add-contact') setCurrentPage('add-contact');
           }}
         />
       )}
@@ -134,6 +92,11 @@ const App = () => {
           {currentPage === 'text' && (
             <div className="p-6">
               <TextConfig />
+            </div>
+          )}
+          {currentPage === 'add-contact' && (
+            <div className="p-6">
+              <AddContact />
             </div>
           )}
         </section>
