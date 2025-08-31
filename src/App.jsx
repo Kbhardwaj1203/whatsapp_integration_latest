@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar.jsx';
+import Email from './components/Email.jsx';
+import Chat from './components/Chat.jsx';
+import Call from './components/Call.jsx';
 import Color from './components/Color.jsx';
 import Mobile from './components/Mobile.jsx';
 import { FaBell, FaSearch, FaUserCircle } from 'react-icons/fa';
 
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [currentPage, setCurrentPage] = useState('dashboard'); // 'dashboard' | 'color' | 'mobile'
+  const [currentPage, setCurrentPage] = useState('dashboard'); // 'dashboard' | 'color' | 'mobile' | 'call' | 'chat' | 'email'
 
   const renderDashboard = () => (
     <div className="p-6 space-y-6">
@@ -65,6 +68,9 @@ const App = () => {
           onNavigate={(route) => {
             if (route === 'color') setCurrentPage('color');
             if (route === 'mobile') setCurrentPage('mobile');
+            if (route === 'call') setCurrentPage('call');
+            if (route === 'chat') setCurrentPage('chat');
+            if (route === 'email') setCurrentPage('email');
           }}
         />
       )}
@@ -79,7 +85,7 @@ const App = () => {
         </button>
       )}
 
-      <main className="flex-1 min-h-screen flex flex-col">
+      <main className="flex-1 min-h-screen flex flex-col ml-72">
         {/* Topbar */}
         <header className="h-16 bg-white border-b border-[#0b1e39]/10 px-5 flex items-center justify-between sticky top-0 z-10">
           <div className="flex items-center gap-3 w-full max-w-xl bg-[#fffff0] border border-[#0b1e39]/10 rounded-lg px-3 py-2">
@@ -105,6 +111,21 @@ const App = () => {
           {currentPage === 'mobile' && (
             <div className="p-6">
               <Mobile />
+            </div>
+          )}
+          {currentPage === 'call' && (
+            <div className="p-6">
+              <Call />
+            </div>
+          )}
+          {currentPage === 'chat' && (
+            <div className="p-6">
+              <Chat />
+            </div>
+          )}
+          {currentPage === 'email' && (
+            <div className="p-6">
+              <Email />
             </div>
           )}
         </section>

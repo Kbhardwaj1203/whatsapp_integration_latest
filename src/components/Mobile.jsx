@@ -298,8 +298,8 @@ export default function MobileConfig() {
     <div className="p-6 max-w-6xl mx-auto">
       <AnimStyles />
 
-      <div className="bg-white rounded-2xl shadow border border-[#0b1e39]/10 overflow-hidden">
-        <header className="flex items-center justify-between px-6 py-4 bg-[#0b1e39] text-[#fffff0]">
+      <div className="bg-white rounded-2xl shadow border border-[#0b1e39]/10 overflow-hidden p-6 md:p-8">
+        <header className="flex items-center justify-between px-6 py-4 bg-[#0b1e39] text-[#fffff0] rounded-t-2xl">
           <div className="flex items-center gap-3">
             <FaMobileAlt />
             <h1 className="text-lg font-bold">Basic Chat Settings</h1>
@@ -330,10 +330,10 @@ export default function MobileConfig() {
           </div>
         </header>
 
-        {/* ---------- Form (always open) ---------- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {/* ---------- Form (always open) ---------- */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
           {/* Left column */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             {/* Phone & CTA */}
             <Row label="Country Code">
               <input className="border px-2 py-1 rounded-md w-full" value={state.countryCode} onChange={onChange("countryCode")} placeholder="e.g. +91" />
@@ -427,7 +427,7 @@ export default function MobileConfig() {
           </div>
 
           {/* Right column */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <Row label="Visibility">
               <div className="flex gap-3 items-center">
                 <label className="flex items-center gap-2"><input type="checkbox" checked={state.visibleOnMobile} onChange={onChange("visibleOnMobile")} /> Mobile</label>
@@ -534,7 +534,7 @@ export default function MobileConfig() {
         </div>
 
         {/* ---------- Second block: design & animations & misc ---------- */}
-        <div className="mt-6 bg-gray-50 p-4 rounded-lg">
+  <div className="mt-8 bg-gray-50 p-6 rounded-lg">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-semibold mb-2">Button Design</label>
@@ -602,7 +602,7 @@ export default function MobileConfig() {
         </div>
 
         {/* ---------- Editable textareas ---------- */}
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <label className="block text-sm font-semibold mb-1">FAQ questions (multi-line)</label>
             <textarea value={state.faqText} onChange={onChange("faqText")} rows={6} className="w-full border px-2 py-1 rounded-md" />
@@ -618,7 +618,7 @@ export default function MobileConfig() {
         </div>
 
         {/* ---------- Footer controls ---------- */}
-        <div className="mt-6 flex items-center justify-between">
+  <div className="mt-8 flex items-center justify-between">
           <div className="text-sm text-gray-500">Tip: Use preview toggle (top-right) to test Mobile vs Desktop placement.</div>
           <div className="flex items-center gap-3">
             <button onClick={() => navigator.clipboard?.writeText(JSON.stringify(state, null, 2))} className="px-3 py-1 rounded bg-[#0b1e39] text-[#fffff0]">Copy JSON</button>
