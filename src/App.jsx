@@ -5,11 +5,12 @@ import Chat from './components/Chat.jsx';
 import Call from './components/Call.jsx';
 import Color from './components/Color.jsx';
 import Mobile from './components/Mobile.jsx';
+import TextConfig from './components/Text.jsx';
 import { FaBell, FaSearch, FaUserCircle } from 'react-icons/fa';
 
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [currentPage, setCurrentPage] = useState('dashboard'); // 'dashboard' | 'color' | 'mobile' | 'call' | 'chat' | 'email'
+  const [currentPage, setCurrentPage] = useState('dashboard'); // 'dashboard' | 'color' | 'mobile' | 'call' | 'chat' | 'email' | 'text'
 
   const renderDashboard = () => (
     <div className="p-6 space-y-6">
@@ -71,6 +72,7 @@ const App = () => {
             if (route === 'call') setCurrentPage('call');
             if (route === 'chat') setCurrentPage('chat');
             if (route === 'email') setCurrentPage('email');
+            if (route === 'text') setCurrentPage('text');
           }}
         />
       )}
@@ -126,6 +128,11 @@ const App = () => {
           {currentPage === 'email' && (
             <div className="p-6">
               <Email />
+            </div>
+          )}
+          {currentPage === 'text' && (
+            <div className="p-6">
+              <TextConfig />
             </div>
           )}
         </section>
