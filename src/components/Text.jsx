@@ -21,7 +21,32 @@ export default function TextConfig() {
         <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#a78bfa"/><text x="12" y="16" textAnchor="middle" fontSize="12" fill="#fff">TEXT</text></svg>
         Text Configuration
       </h2>
-      {/* Order Tracking Parameters */}
+      {/* Quick Action Buttons */}
+      <div className="mb-8 flex flex-col gap-6">
+        <div className="flex items-center gap-3 cursor-pointer">
+          <span className="inline-flex items-center gap-1">
+            <span className="bg-yellow-400 text-[#464757] font-bold px-2 py-1 rounded shadow text-xs">FAQ</span>
+          </span>
+          <span className="text-gray-500 font-medium">FAQ questions</span>
+        </div>
+        <div className="flex items-center gap-3 cursor-pointer">
+          <span className="inline-flex items-center gap-1">
+            <span className="bg-orange-400 text-white font-bold px-2 py-1 rounded shadow text-xs flex items-center gap-1">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" fill="#FF5722"/><text x="12" y="16" textAnchor="middle" fontSize="10" fill="#fff">LIVE</text></svg>
+            </span>
+          </span>
+          <span className="text-gray-500 font-medium">Manage Live Chat here</span>
+        </div>
+        <div className="flex items-center gap-3 cursor-pointer">
+          <span className="text-blue-600 font-bold text-lg">Rate Us</span>
+        </div>
+        <div className="flex items-center gap-3 cursor-pointer">
+          <span className="inline-flex items-center gap-1">
+            <span className="bg-red-500 text-white font-bold px-2 py-1 rounded shadow text-xs flex items-center gap-1">HELP</span>
+            <span style={{fontSize:'1.5em'}}>🖐️</span>
+          </span>
+        </div>
+      </div>
       <div className="mb-8">
         <label className="font-semibold text-[#2563eb] mb-2 block">Order Tracking Parameters</label>
         <div className="flex gap-4 flex-wrap">
