@@ -102,15 +102,19 @@ export default function MobileConfig() {
   const [state, setState] = useState(() => ({ ...DEFAULTS }));
   const [visible, setVisible] = useState(false); // preview display after delay
 
-  // handle display after timeout for previewMode
+  // handle preview delay (applies on initial load or when delay values change)
   useEffect(() => {
     setVisible(false);
-    const seconds =
-      state.previewMode === "mobile" ? state.displayAfterMobile : state.displayAfterDesktop;
+    const seconds = state.previewMode === "mobile" ? state.displayAfterMobile : state.displayAfterDesktop;
     const ms = Math.max(0, Number(seconds) * 1000);
     const t = setTimeout(() => setVisible(true), ms);
     return () => clearTimeout(t);
-  }, [state.displayAfterMobile, state.displayAfterDesktop, state.previewMode]);
+  }, [state.displayAfterMobile, state.displayAfterDesktop]);
+
+  // instantly show preview when switching modes (no waiting)
+  useEffect(() => {
+    setVisible(true);
+  }, [state.previewMode]);
 
   // live computed styles for preview button
   const previewStyle = useMemo(() => {
@@ -639,65 +643,109 @@ export default function MobileConfig() {
 
       {/* ---------- Floating WhatsApp Preview Button ---------- */}
       {visible && isPreviewVisible && (
-        <div
-          role="button"
-          tabIndex={0}
-          aria-label="WhatsApp Chat Button Preview"
-          className={`mc-preview ${previewStyle.animClass || ""}`}
-          style={{
-            ...previewStyle,
-            background: buttonBackground,
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            color: state.mobileTextColor,
-            cursor: "pointer",
-            boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
-            border: state.timeZoneSetting === "round" ? "none" : "1px solid rgba(0,0,0,0.06)",
-            padding: previewStyle.padding,
-            borderRadius: previewStyle.borderRadius,
-          }}
-          onClick={() => {
-            // if directWhatsapp is enabled, simulate redirect; otherwise simulate opening chat
-            if (state.directWhatsapp) {
-              // open whatsapp (simulation)
-              const msg = encodeURIComponent(state.includePageUrl ? `${state.ctaText} - ${window.location.href}` : state.ctaText);
-              const phone = `${(state.countryCode || '').replace(/[^\d+]/g,'')}${(state.mobileNumber || '').replace(/\D/g,'')}`;
-              const url = phone ? `https://wa.me/${phone.replace('+','')}?text=${msg}` : `https://wa.me/?text=${msg}`;
-              window.open(url, "_blank");
-            } else {
-              alert("Open chat popup (preview) — (directWhatsapp is off)");
-            }
-          }}
-        >
-          {/* left text */}
-          <div style={{
-            fontWeight: state.labelStyle === "bold" ? 700 : state.labelStyle === "bolder" ? 900 : 400,
-            fontSize: `${state.fontSize}px`,
-            fontFamily: state.chatFont,
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-          }}>
-            <span style={{ color: state.chatTextColor }}>{state.ctaText}</span>
-            {/* blinking dot if enabled */}
-            {state.showBlinkingMessage && (
-              <span className="mc-blink-dot" style={{ background: state.blinkCircleColor }} />
+        state.previewMode === "mobile" ? (
+          <div
+            role="button"
+            tabIndex={0}
+            aria-label="WhatsApp Chat Button Preview (Mobile)"
+            className={`mc-preview ${previewStyle.animClass || ""}`}
+            style={{
+              ...previewStyle,
+              background: buttonBackground,
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              color: state.mobileTextColor,
+              cursor: "pointer",
+              boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
+              border: state.timeZoneSetting === "round" ? "none" : "1px solid rgba(0,0,0,0.06)",
+            }}
+            onClick={() => {
+              if (state.directWhatsapp) {
+                const msg = encodeURIComponent(state.includePageUrl ? `${state.ctaText} - ${window.location.href}` : state.ctaText);
+                const phone = `${(state.countryCode || '').replace(/[^\d+]/g,'')}${(state.mobileNumber || '').replace(/\D/g,'')}`;
+                const url = phone ? `https://wa.me/${phone.replace('+','')}?text=${msg}` : `https://wa.me/?text=${msg}`;
+                window.open(url, "_blank");
+              } else {
+                alert("Open chat popup (preview) — (directWhatsapp is off)");
+              }
+            }}
+          >
+            {/* Mobile text */}
+            <div style={{
+              fontWeight: state.labelStyle === "bold" ? 700 : state.labelStyle === "bolder" ? 900 : 400,
+              fontSize: `${state.fontSize}px`,
+              fontFamily: state.chatFont,
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+            }}>
+              <span style={{ color: state.mobileTextColor }}>{state.ctaText} <span style={{fontSize:12, color:'#25D366', fontWeight:600}}>(Mobile)</span></span>
+              {state.showBlinkingMessage && (
+                <span className="mc-blink-dot" style={{ background: state.blinkCircleColor }} />
+              )}
+            </div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <FaWhatsapp size={Math.round(state.fontSize * 0.8)} color={state.mobileColor} />
+            </div>
+            {!state.noPoweredBy && (
+              <div style={{ marginLeft: 8, fontSize: 10, color: "#25D366" }}>
+                Powered by xyz.com
+              </div>
             )}
           </div>
-
-          {/* icon */}
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <FaWhatsapp size={Math.round(state.fontSize * 0.8)} color={state.svgIconColor} />
-          </div>
-
-          {/* optional powered-by */}
-          {!state.noPoweredBy && (
-            <div style={{ marginLeft: 8, fontSize: 10, color: "rgba(0,0,0,0.4)" }}>
-              Powered by xyz.com
+        ) : (
+          <div
+            role="button"
+            tabIndex={0}
+            aria-label="WhatsApp Chat Button Preview (Desktop)"
+            className={`mc-preview ${previewStyle.animClass || ""}`}
+            style={{
+              ...previewStyle,
+              background: state.chatBackgroundColor,
+              display: "flex",
+              alignItems: "center",
+              gap: "14px",
+              color: state.chatTextColor,
+              cursor: "pointer",
+              boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
+              border: state.timeZoneSetting === "rectangle" ? "2px solid #a78bfa" : "none",
+            }}
+            onClick={() => {
+              if (state.directWhatsapp) {
+                const msg = encodeURIComponent(state.includePageUrl ? `${state.ctaText} - ${window.location.href}` : state.ctaText);
+                const phone = `${(state.countryCode || '').replace(/[^\d+]/g,'')}${(state.mobileNumber || '').replace(/\D/g,'')}`;
+                const url = phone ? `https://wa.me/${phone.replace('+','')}?text=${msg}` : `https://wa.me/?text=${msg}`;
+                window.open(url, "_blank");
+              } else {
+                alert("Open chat popup (preview) — (directWhatsapp is off)");
+              }
+            }}
+          >
+            {/* Desktop text */}
+            <div style={{
+              fontWeight: state.labelStyle === "bold" ? 700 : state.labelStyle === "bolder" ? 900 : 400,
+              fontSize: `${state.fontSize + 2}px`,
+              fontFamily: state.chatFont,
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+            }}>
+              <span style={{ color: state.chatTextColor }}>{state.ctaText} <span style={{fontSize:12, color:'#a78bfa', fontWeight:600}}>(Desktop)</span></span>
+              {state.showBlinkingMessage && (
+                <span className="mc-blink-dot" style={{ background: state.blinkCircleColor }} />
+              )}
             </div>
-          )}
-        </div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <FaWhatsapp size={Math.round((state.fontSize + 2) * 0.8)} color={state.svgIconColor} />
+            </div>
+            {!state.noPoweredBy && (
+              <div style={{ marginLeft: 8, fontSize: 10, color: "#a78bfa" }}>
+                Powered by xyz.com
+              </div>
+            )}
+          </div>
+        )
       )}
     </div>
   );
