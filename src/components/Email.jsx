@@ -20,7 +20,7 @@ export default function Email() {
 									<button
 										className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg"
 										style={{
-											background: '#25D366',
+											background: 'linear-gradient(90deg, #2563eb 0%, #a78bfa 100%)',
 											color: '#fff',
 											fontFamily: 'Arial, sans-serif',
 											fontSize: '18px',

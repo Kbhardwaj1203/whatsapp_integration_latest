@@ -85,7 +85,7 @@ export default function Chat() {
                 <button
                     className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg"
                     style={{
-                        background: '#25D366',
+                        background: 'linear-gradient(90deg, #2563eb 0%, #a78bfa 100%)',
                         color: '#fff',
                         fontFamily: 'Arial, sans-serif',
                         fontSize: '18px',
@@ -97,6 +97,8 @@ export default function Chat() {
                         alignItems: 'center',
                         display: 'flex',
                         borderRadius: iconRadius + 'px',
+                        boxShadow: '0 8px 32px rgba(37,99,235,0.18), 0 2px 8px rgba(167,139,250,0.12)',
+                        transition: 'all 0.3s cubic-bezier(.4,2,.3,1)',
                     }}
                 >
                     <img
