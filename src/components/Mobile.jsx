@@ -209,9 +209,10 @@ export default function MobileConfig() {
 
   // show/hide based on preview visibility toggles
   const isPreviewVisible = useMemo(() => {
-    if (state.previewMode === "mobile") return state.visibleOnMobile;
-    return state.visibleOnDesktop;
-  }, [state.previewMode, state.visibleOnMobile, state.visibleOnDesktop]);
+    // Only show preview for selected mode and after delay
+    if (!visible) return false;
+    return state.previewMode === "mobile" || state.previewMode === "desktop";
+  }, [state.previewMode, visible]);
 
   // assemble inline style for button background and text
   const buttonBackground = useMemo(

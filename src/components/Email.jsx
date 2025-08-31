@@ -8,10 +8,13 @@ export default function Email() {
 	const [closeTime, setCloseTime] = useState("2");
 
 		return (
-			<div className="max-w-xl mx-auto bg-white rounded-3xl shadow-2xl p-8 mt-8">
+			<div className="max-w-xl mx-auto bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-3xl shadow-2xl border border-[#e0e7ff] p-8 mt-12">
 				{/* Top Export Emails link */}
 				<div className="mb-4">
-					<section className="text-gray-900 font-semibold text-base transition-all">Email Popup in chat</section>
+					<section className="text-[#1e293b] font-bold text-2xl flex items-center gap-2">
+						<svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#2563eb"/><text x="12" y="16" textAnchor="middle" fontSize="12" fill="#fff">EMAIL</text></svg>
+						Email Popup in chat
+					</section>
 								{/* Floating WhatsApp Button Fixed Bottom Right */}
 								<div className="fixed bottom-8 right-8 z-50">
 									<button
@@ -30,29 +33,29 @@ export default function Email() {
 								</div>
 					</div>
 				<div className="flex gap-6 mb-8">
-					<div className="flex-1 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-xl p-4 flex flex-col items-center justify-center">
-						<div className="w-56 h-96 bg-white rounded-xl shadow-lg flex flex-col justify-center items-center p-6">
-							<div className="text-lg font-bold text-gray-700 mb-2">{header || "Please introduce yourself:"}</div>
+					<div className="flex-1 bg-gradient-to-br from-[#e0e7ff] via-[#f0f4ff] to-[#fff] rounded-xl p-4 flex flex-col items-center justify-center">
+						<div className="w-56 h-96 bg-white rounded-xl shadow-lg flex flex-col justify-center items-center p-6 border border-[#e0e7ff]">
+							<div className="text-lg font-bold text-[#1e293b] mb-2">{header || "Please introduce yourself:"}</div>
 							<input
 								type="email"
-								className="w-full border-2 border-purple-300 rounded-lg px-3 py-2 mb-4 text-base focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+								className="w-full border-2 border-[#2563eb]/30 rounded-lg px-3 py-2 mb-4 text-base focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all bg-white shadow-sm"
 								placeholder={placeholder || "Enter your email"}
 								disabled
 							/>
-							<button className="w-full py-2 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold shadow hover:opacity-90 transition-all">{buttonText || "Submit"}</button>
+							<button className="w-full py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow hover:opacity-90 transition-all">{buttonText || "Submit"}</button>
 						</div>
 					</div>
-					<div className="flex-1 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-xl p-4 flex flex-col items-center justify-center">
-						<div className="w-56 h-96 bg-white rounded-xl shadow-lg flex flex-col justify-center items-center p-6">
+					<div className="flex-1 bg-gradient-to-br from-[#f0f4ff] to-[#e0e7ff] rounded-xl p-4 flex flex-col items-center justify-center">
+						<div className="w-56 h-96 bg-white rounded-xl shadow-lg flex flex-col justify-center items-center p-6 border border-[#e0e7ff]">
 							<div className="w-full flex flex-col gap-2">
-								<button className="bg-green-100 text-green-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">Place New Order</button>
-								<button className="bg-green-100 text-green-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">Existing Orders</button>
-								<button className="bg-green-100 text-green-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">Product information</button>
-								<button className="bg-green-100 text-green-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">Chat with CC Executive</button>
-								<button className="bg-green-100 text-green-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">FAQ's</button>
-								<button className="bg-green-100 text-green-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">service center</button>
+								<button className="bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">Place New Order</button>
+								<button className="bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">Existing Orders</button>
+								<button className="bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">Product information</button>
+								<button className="bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">Chat with CC Executive</button>
+								<button className="bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">FAQ's</button>
+								<button className="bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-xs font-semibold mb-2">Service Center</button>
 							</div>
-							<div className="w-full mt-6 text-gray-600 text-sm">hi</div>
+							<div className="w-full mt-6 text-[#1e293b] text-sm">hi</div>
 							<div className="w-full text-xs text-gray-400 text-right mt-2">Powered by Pushdaddy</div>
 						</div>
 					</div>
