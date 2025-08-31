@@ -78,7 +78,10 @@ export default function Chat() {
                 `}</style>
             </div>
             {/* Floating WhatsApp Button Fixed Bottom Right, moves left/right by iconMove % */}
-            <div className="fixed bottom-8 z-50">
+            <div
+                className="fixed bottom-8 z-50"
+                style={{ right: `calc(${iconMove}% + 8px)` }}
+            >
                 <button
                     className="flex items-center gap-2 px-5 py-3 rounded-full shadow-lg"
                     style={{
@@ -94,7 +97,6 @@ export default function Chat() {
                         alignItems: 'center',
                         display: 'flex',
                         borderRadius: iconRadius + 'px',
-                        right: `calc(${iconMove}% + 8px)`
                     }}
                 >
                     <img
