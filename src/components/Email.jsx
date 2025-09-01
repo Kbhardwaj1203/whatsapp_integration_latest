@@ -20,7 +20,7 @@ export default function Email() {
 								<FloatingWhatsAppButton
 									text={buttonText || "Chat with us"}
 									size={60}
-									movePercent={50}
+									movePercent={1}
 									radius={40}
 									background="linear-gradient(90deg, #25D366 0%, #128C7E 100%)"
 									color="#fff"

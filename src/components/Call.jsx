@@ -22,6 +22,7 @@ export default function Call() {
   const [animation, setAnimation] = useState("bounce");
   const [repeat, setRepeat] = useState("infinite");
   const [showMore, setShowMore] = useState(false);
+  
 
   // Load saved settings on mount
   useEffect(() => {

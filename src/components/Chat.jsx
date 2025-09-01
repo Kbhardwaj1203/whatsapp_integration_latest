@@ -104,7 +104,7 @@ export default function Chat() {
             </div>
             {/* Floating WhatsApp Button (shared component, single icon everywhere) */}
             <FloatingWhatsAppButton
-              text="Chat with us"
+            //   text="Chat with us"
               size={iconSize}
               movePercent={iconMove}
               radius={iconRadius}

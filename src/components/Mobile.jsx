@@ -626,8 +626,8 @@ export default function MobileConfig() {
   <div className="mt-8 flex items-center justify-between">
           <div className="text-sm text-gray-500">Tip: Use preview toggle (top-right) to test Mobile vs Desktop placement.</div>
           <div className="flex items-center gap-3">
-            <button onClick={() => navigator.clipboard?.writeText(JSON.stringify(state, null, 2))} className="px-3 py-1 rounded bg-[#0b1e39] text-[#fffff0]">Copy JSON</button>
-            <button onClick={() => {
+            {/* <button onClick={() => navigator.clipboard?.writeText(JSON.stringify(state, null, 2))} className="px-3 py-1 rounded bg-[#0b1e39] text-[#fffff0]">Copy JSON</button> */}
+            {/* <button onClick={() => {
               try {
                 const raw = prompt("Paste JSON config:");
                 if (!raw) return;
@@ -636,7 +636,7 @@ export default function MobileConfig() {
               } catch (e) {
                 alert("Invalid JSON");
               }
-            }} className="px-3 py-1 rounded bg-white border">Import JSON</button>
+            }} className="px-3 py-1 rounded bg-white border">Import JSON</button> */}
           </div>
         </div>
       </div>
@@ -680,7 +680,7 @@ export default function MobileConfig() {
               alignItems: "center",
               gap: 8,
             }}>
-              <span style={{ color: state.mobileTextColor }}>{state.ctaText} <span style={{fontSize:12, color:'#25D366', fontWeight:600}}>(Mobile)</span></span>
+              <span style={{ color: state.mobileTextColor }}>{state.ctaText} <span style={{fontSize:12, color:'#25D366', fontWeight:600}}></span></span>
               {state.showBlinkingMessage && (
                 <span className="mc-blink-dot" style={{ background: state.blinkCircleColor }} />
               )}
@@ -688,11 +688,7 @@ export default function MobileConfig() {
             <div style={{ display: "flex", alignItems: "center" }}>
               <FaWhatsapp size={Math.round(state.fontSize * 0.8)} color={state.mobileColor} />
             </div>
-            {!state.noPoweredBy && (
-              <div style={{ marginLeft: 8, fontSize: 10, color: "#25D366" }}>
-                Powered by xyz.com
-              </div>
-            )}
+      
           </div>
         ) : (
           <div

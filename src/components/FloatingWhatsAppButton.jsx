@@ -16,8 +16,8 @@ import { FaWhatsapp } from "react-icons/fa";
 */
 const FloatingWhatsAppButton = ({
   text = "Chat with us",
-  size = 60,
-  movePercent = 50,
+  size = 200,
+  movePercent = 1,
   radius = 50,
   background = "linear-gradient(90deg, #25D366 0%, #128C7E 100%)",
   color = "#fff",
